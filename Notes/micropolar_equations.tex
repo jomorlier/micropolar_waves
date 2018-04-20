@@ -1,38 +1,15 @@
-%\documentclass[12pt,letterpaper]{article}
-%\usepackage[utf8]{inputenc}
-%\usepackage{amsmath,
-%			amsfonts,
-%			amssymb}
-%\usepackage{graphicx}
-%\usepackage{subcaption}
-%\usepackage{float}
-%\usepackage{physics}
-%\usepackage{cancel}
-%
-%
-%
-%
-%
-%\author{Gary Dargush, Ali Reza Hadjesandiari\\Nicolás Guarín-Zapata and Juan Gomez}
-%\title{\textbf{Revision o the continuum mechanics consistency of micropolar field theories from the wave propagation point of view}}
-
-
-%%%%%
 \documentclass[12pt]{article}
 \usepackage{geometry}
 \usepackage{amsmath, amsfonts, amssymb}
 \usepackage[utf8]{inputenc}
 \usepackage{graphicx}
-\usepackage{geometry}
 \usepackage[round]{natbib}
-\usepackage{subfig} % Subgraphics
-\usepackage{hyperref} % Nice PDF
+\usepackage{subfig}
+\usepackage{hyperref}
 \usepackage{physics}
 \usepackage{float}
+\usepackage{cancel}
 
-\geometry{
-	verbose,
-	letterpaper}
 
 \hypersetup{
 	bookmarksopen=true,
@@ -51,15 +28,7 @@
 
 \title{\textbf{The micropolar continuum theory: a revision from the wave propagation perspective}}
 
-\author{
-	Gary Dargush, Ali Reza Hadjesfandiari\\Nicolás Guarín-Zapata and Juan Gomez\\}
-
-
-
-
-%%%%%%
-
-
+\author{Gary Dargush \and Ali Reza Hadjesfandiari \and Nicolás Guarín-Zapata \and Juan Gomez}
 
 
 \begin{document}
@@ -96,14 +65,21 @@ In the linear regime, the constitutive equations are
 \begin{subequations}\label{eq:constitutive}
   \begin{align}
     & \sigma_{ji} = (\mu + \alpha) \gamma_{ji} + (\mu - \alpha) \gamma_{ij} + \lambda \gamma_{kk} \delta_{ij}\\
-    & \mu_{ji} = (\gamma + \epsilon) \kappa_{ji} + (\gamma - \epsilon) \kappa_{ij} + \beta \kappa_{kk} \delta_{ij}\, .
+    & \mu_{ji} = (\gamma + \varepsilon) \kappa_{ji} + (\gamma - \varepsilon) \kappa_{ij} + \beta \kappa_{kk} \delta_{ij}\, .
   \end{align}
 \end{subequations}
 
-\section{Derivation of the displacement equations}
+These constitutive equations can also be written as
+\begin{align*}
+    & \sigma_{ji} = \mu \gamma_{(ij)} + 2 \alpha \gamma_{[ij]} + \lambda \gamma_{kk} \delta_{ij}\\
+    & \mu_{ji} = \gamma \kappa_{(ij)} + 2\varepsilon \kappa_{[ij]} + \beta \kappa_{kk} \delta_{ij}\, ,
+\end{align*}
+where we have separated the symmetric and antisymmetric parts of the 
+
+\section{Derivation of the equations for displacements and rotations}
 We can start writing the conservation equations \eqref{eq:conservation} as kinematic variables using the constitutive equations \eqref{eq:constitutive}, to obtain:
 \begin{align*}
-  & (\mu + \alpha) \gamma_{ji, j} + (\mu - \alpha) \gamma_{ij,j} + \lambda \gamma_{kk, i} + f_i = \rho \ddot{u}_i\\
+ & (\mu + \alpha) \gamma_{ji, j} + (\mu - \alpha) \gamma_{ij,j} + \lambda \gamma_{kk, i} + f_i = \rho \ddot{u}_i\\
   & \epsilon_{ijk}(\mu + \alpha) \gamma_{jk} + \epsilon_{ijk}(\mu - \alpha) \gamma_{kj} + \cancelto{0}{\epsilon_{ijk} \delta_{jk} \lambda \gamma_{rr}} + (\gamma + \epsilon) \kappa_{ji,j} + (\gamma - \epsilon) \kappa_{ij,j} + \beta \kappa_{kk, i} + c_i = J \ddot{\varphi}_i\, .
 \end{align*}
 
@@ -117,9 +93,150 @@ And, using the identity \(a_{i,jj} = a_{j,ji} - \epsilon_{ijk} \epsilon_{klm} a_
 grouping \(u_{k,ki}\),
 \[(\mu + \alpha + \lambda) u_{k, ki} - \epsilon_{ijk} \epsilon_{klm} (\mu + \alpha) u_{m,lj} + (\mu - \alpha) u_{j, ij} + 2\alpha \epsilon_{ijk} \varphi_{k,j} + f_i = \rho \ddot{u}_i\, ,\]
 but \(u_{j, ij} = u_{j, ji}\), thus
-\begin{equation}
-  (\lambda + 2\mu) u_{k, ki} - \epsilon_{ijk} \epsilon_{klm} (\mu + \alpha) u_{m,lj}+ 2\alpha \epsilon_{ijk} \varphi_{k,j} + f_i = \rho \ddot{u}_i\, .
-\end{equation}
+\[(\lambda + 2\mu) u_{k, ki} - \epsilon_{ijk} \epsilon_{klm} (\mu + \alpha) u_{m,lj}+ 2\alpha \epsilon_{ijk} \varphi_{k,j} + f_i = \rho \ddot{u}_i\, .\]
+
+Following a similar approach, we obtain
+\[(\beta + 2\gamma) \varphi_{k, ki} - \epsilon_{ijk} \epsilon_{klm} (\gamma + \varepsilon) u_{m,lj}+ 2\alpha \epsilon_{ijk} u_{k,j} - 4\alpha\varphi + c_i = J \ddot{\varphi}_i\, ,\]
+for rotations.
+
+\section{Equations in index and vector notation}
+Authors presents the equations in slightly different ways, in this section we present the equations in two different forms.
+
+One form is
+\begin{subequations}
+  \begin{align}
+    & (\mu + \alpha) u_{i, jj} + (\lambda + \mu - \alpha) u_{j,ji} + 2\alpha \epsilon_{ijk}\varphi_{k,j} + f_i = \rho \ddot{u}_i\, \\
+    & (\gamma + \varepsilon) \varphi_{i, jj} + (\beta + \gamma - \varepsilon) \varphi_{j,ji} + 2\alpha \epsilon_{ijk}u_{k,j} - 4\alpha \varphi_i  + c_i = J \ddot{\varphi}_i\, ,
+  \end{align}
+\end{subequations}
+or, in vector notation
+\begin{align*}
+    & (\mu + \alpha)\laplacian{\vb{u}} + (\lambda + \mu - \alpha) \grad\div\vb{u} + 2\alpha \curl\vb{\varphi} + \vb{f} = \rho \pdv[2]{\vb{u}}{t}\, \\
+    & (\gamma + \varepsilon) \laplacian\vb{\varphi} + (\beta + \gamma - \varepsilon) \grad\div\vb{\varphi} + 2\alpha \curl\vb{u} - 4\alpha \vb{\varphi}  + \vb{c} = J \pdv[2]{\varphi}{t}\, .
+\end{align*}
+
+We find the second form more appropriated for wave propagation. This one, reads
+\begin{subequations}
+  \begin{align}
+    & (\lambda + 2\mu) u_{k, ki} - \epsilon_{ijk} \epsilon_{klm} (\mu + \alpha) u_{m,lj}+ 2\alpha \epsilon_{ijk} \varphi_{k,j} + f_i = \rho \ddot{u}_i, \\
+    & (\beta + 2\gamma) \varphi_{k, ki} - \epsilon_{ijk} \epsilon_{klm} (\gamma + \varepsilon) u_{m,lj}+ 2\alpha \epsilon_{ijk} u_{k,j} - 4\alpha\varphi + c_i = J \ddot{\varphi}_i\, ,
+  \end{align}
+\end{subequations}
+or, in vector notation
+\begin{subequations}\label{eq:disp_vector}
+  \begin{align}
+    & (\lambda + 2\mu) \grad\div\vb{u} - (\mu + \alpha)\curl\curl\vb{u} + 2\alpha \curl\vb{\varphi} + \vb{f} = \rho \pdv[2]{\vb{u}}{t}, \\
+    & (\beta + 2\gamma) \grad\div\vb{\varphi} - (\gamma + \varepsilon) \curl\curl\vb{u} +  2\alpha \curl\vb{u} - 4\alpha\vb{\varphi} + \vb{c} = J \pdv[2]{\vb{\varphi}}{t}\, .
+  \end{align}
+\end{subequations}
+
+\section{Waves in micropolar solids}
+Let's write equation \eqref{eq:disp_vector} in a slightly different way, where we regroup the material constants in a different way and neglect body forces
+\begin{subequations}
+  \begin{align}\label{eq:disp_waves}
+    & c_1^2 \grad\div\vb{u} - c_2^2\curl\curl\vb{u} + K^2 \curl\vb{\varphi} =  \pdv[2]{\vb{u}}{t}, \\
+    & c_3^2 \grad\div\vb{\varphi} - c_4^2 \curl\curl\vb{u} +  Q^2 \curl\vb{u} - 2Q^2 \vb{\varphi} = \pdv[2]{\vb{\varphi}}{t}\, .
+  \end{align}
+\end{subequations}
+where,
+\begin{equation*}
+\begin{split}
+c_1^2 = \frac{\lambda +2\mu}{\rho},\quad &c_3^2 =\frac{\beta +2\gamma}{J},\\
+c_2^2 = \frac{\mu +\alpha}{\rho},\quad &c_4^2 =\frac{\gamma + \varepsilon}{J},\\
+K^2= \frac{2\alpha}{\rho},\quad &Q^2 =\frac{2\alpha}{J} \, ,
+\end{split}
+\end{equation*}
+
+
+To identify types of propagating waves that can arise in the micropolar medium we expand our main variables in terms of scalar and vector potentials, as follows
+\begin{align*}
+\vb{u} &= \grad \phi + \curl\vb{\Gamma}\, ,\\
+\vb{\varphi} &= \grad \tau + \curl\vb{E}\, ,
+\end{align*}
+with
+\begin{align*}
+&\div\vb{\Gamma} = 0\\
+&\div\vb{E} = 0\, .
+\end{align*}
+
+If we plug these in \eqref{eq:disp_waves}, we obtain the following, after some manipulations,
+\begin{subequations}
+  \begin{align}\label{eq:disp_waves}
+    c_1^2 \laplacian\phi &= \pdv[2]{\phi}{t}\\
+    c_3^2 \laplacian\tau - 2Q^2\tau &= \pdv[2]{\tau}{t}\\
+    \begin{bmatrix}
+      c_2^2\laplacian &K^2\curl\\
+      Q^2\curl &c_4^2\laplacian - 2Q^2
+    \end{bmatrix}
+    \begin{Bmatrix} \vb{\Gamma}\\ \vb{E}\end{Bmatrix} &=
+    \pdv[2]{t} \begin{Bmatrix} \vb{\Gamma}\\ \vb{E}\end{Bmatrix}\, ,
+  \end{align}
+\end{subequations}
+where we can see that the equations for the scalar potentials are uncoupled, while the ones
+for the vector potentials are coupled.
+
+If we assume that the potentials are plane waves we can find the dispersion relations. Particularly, for the coupled waves, we have
+\begin{align*}
+\vb{\Gamma} &= \vb{A}\exp(i\kappa x - i\omega t)\\
+\vb{E} &= \vb{B}\exp(i\kappa x - i\omega t)\, ,
+\end{align*}
+and plugging it into the coupled equation we end up with the following system of equations
+\[\begin{bmatrix}
+M_{11} &M_{12}\\
+M_{21} &M_{22}\end{bmatrix}
+\begin{Bmatrix} \vb{A}\\ \vb{B}\end{Bmatrix}
+= \vb{0}\, ,\]
+with
+\begin{align*}
+&M_{11} =
+(c_{2}^{2} \kappa^{2} - \omega^{2})
+\begin{bmatrix}
+1 & 0 & 0\\
+0 & 1 & 0 \\
+0 & 0 & 1
+\end{bmatrix}\\
+&M_{12} =
+\begin{bmatrix}
+0 & 0 & 0\\
+0 & 0 & i K^{2} \kappa\\
+0 & -i K^{2} \kappa & 0
+\end{bmatrix}\\
+&M_{21} =
+\begin{bmatrix}
+0 & 0 & 0 \\
+0 & 0 & i Q^{2} \kappa \\
+0 & -i Q^{2} \kappa & 0 
+\end{bmatrix}\\
+&M_{22} =
+(2 Q^{2} + c_{4}^{2} \kappa^{2} - \omega^{2})\begin{bmatrix}
+1 &0 &0\\
+0 &1 &0\\
+0 &0 &1
+\end{bmatrix}\, .
+\end{align*}
+
+Since we are not interested in the null solution, we have
+\[\det\begin{bmatrix}
+M_{11} &M_{12}\\
+M_{21} &M_{22}\end{bmatrix}=0\, ,\]
+that leads to the dispersion equation 
+\begin{equation*}
+\omega^2 = Q^{2} + \frac{c_{2}^{2} \kappa^{2}}{2} + \frac{c_{4}^{2} \kappa^{2}}{2} \mp \frac{1}{2} \sqrt{4 K^{2} Q^{2} \kappa^{2} + 4 Q^{4} - 4 Q^{2} c_{2}^{2} \kappa^{2} + 4 Q^{2} c_{4}^{2} \kappa^{2} + c_{2}^{4} \kappa^{4} - 2 c_{2}^{2} c_{4}^{2} \kappa^{4} + c_{4}^{4} \kappa^{4}}\, ,
+\end{equation*}
+where the minus signs corresponds to the transverse wave and the plus sign corresponds to the rotational wave.
+
+The dispersion relations are then
+\begin{align}
+\omega_P &= c_1 \kappa\, ,\\
+\omega_{RL} &= \sqrt{2Q^2 + c_3^2 \kappa^2}\, ,\\
+\omega_S &= \sqrt{Q^{2} + \frac{(c_2^2 + c_4^2)}{2}\kappa^2 - \frac{1}{2} \sqrt{4Q^4 +
+   4Q^2[(c_4^2 - c_2^2) + K^2]\kappa^2 + (c_4^2 - c_2^2)^2 \kappa^4}}\, ,\\
+\omega_{RT} &= \sqrt{Q^{2} + \frac{(c_2^2 + c_4^2)}{2}\kappa^2 + \frac{1}{2} \sqrt{4Q^4 +
+   4Q^2[(c_4^2 - c_2^2) + K^2]\kappa^2 + (c_4^2 - c_2^2)^2 \kappa^4}}\, ,
+\end{align}
+where we can see that the only wave that is not dispersive
+
+
 
 \bibliographystyle{unsrtnat}
 \bibliography{bloch-cosserat}
