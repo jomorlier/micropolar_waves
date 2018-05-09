@@ -143,7 +143,7 @@ where,
 \begin{split}
 c_1^2 = \frac{\lambda +2\mu}{\rho},\quad &c_3^2 =\frac{\beta +2\gamma}{J},\\
 c_2^2 = \frac{\mu +\alpha}{\rho},\quad &c_4^2 =\frac{\gamma + \varepsilon}{J},\\
-K^2= \frac{2\alpha}{\rho},\quad &Q^2 =\frac{2\alpha}{J} \, ,
+K^2= \frac{2\alpha}{\rho},\quad &^2 =\frac{2\alpha}{J} \, ,
 \end{split}
 \end{equation*}
 
@@ -161,7 +161,7 @@ with
 
 If we plug these in \eqref{eq:disp_waves}, we obtain the following, after some manipulations,
 \begin{subequations}
-  \begin{align}\label{eq:disp_waves}
+  \begin{align}\label{eq:potential_waves}
     c_1^2 \laplacian\phi &= \pdv[2]{\phi}{t}\\
     c_3^2 \laplacian\tau - 2Q^2\tau &= \pdv[2]{\tau}{t}\\
     \begin{bmatrix}
@@ -175,6 +175,7 @@ If we plug these in \eqref{eq:disp_waves}, we obtain the following, after some m
 where we can see that the equations for the scalar potentials are uncoupled, while the ones
 for the vector potentials are coupled.
 
+\subsection{Dispersion relations}
 If we assume that the potentials are plane waves we can find the dispersion relations. Particularly, for the coupled waves, we have
 \begin{align*}
 \vb{\Gamma} &= \vb{A}\exp(i\kappa x - i\omega t)\\
@@ -227,16 +228,74 @@ where the minus signs corresponds to the transverse wave and the plus sign corre
 
 The dispersion relations are then
 \begin{align}
-\omega_P &= c_1 \kappa\, ,\\
-\omega_{RL} &= \sqrt{2Q^2 + c_3^2 \kappa^2}\, ,\\
-\omega_S &= \sqrt{Q^{2} + \frac{(c_2^2 + c_4^2)}{2}\kappa^2 - \frac{1}{2} \sqrt{4Q^4 +
+&\omega_P = c_1 \kappa\, ,\\
+&\omega_{RL} = \sqrt{2Q^2 + c_3^2 \kappa^2}\, ,\\
+&\omega_S = \sqrt{Q^{2} + \frac{(c_2^2 + c_4^2)}{2}\kappa^2 - \frac{1}{2} \sqrt{4Q^4 +
    4Q^2[(c_4^2 - c_2^2) + K^2]\kappa^2 + (c_4^2 - c_2^2)^2 \kappa^4}}\, ,\\
-\omega_{RT} &= \sqrt{Q^{2} + \frac{(c_2^2 + c_4^2)}{2}\kappa^2 + \frac{1}{2} \sqrt{4Q^4 +
+&\omega_{RT} = \sqrt{Q^{2} + \frac{(c_2^2 + c_4^2)}{2}\kappa^2 + \frac{1}{2} \sqrt{4Q^4 +
    4Q^2[(c_4^2 - c_2^2) + K^2]\kappa^2 + (c_4^2 - c_2^2)^2 \kappa^4}}\, ,
 \end{align}
 where we can see that the only wave that is not dispersive is the P-wave, since the relationship between wavenumber and frequency is linear.
 
+\subsubsection{Wave speeds}
+We can write the phase speeds \(v_i \equiv \omega_i/\kappa\), to obtain
+\begin{align}
+&v_P = c_1 \, ,\\
+&v_{RL} = \sqrt{\frac{2Q^2}{\kappa^2} + c_3^2}\, ,\\
+&v_S = \sqrt{\frac{Q^2}{\kappa^2} + \frac{(c_2^2 + c_4^2)}{2} - \frac{1}{2} \sqrt{\frac{4Q^4}{\kappa^4} + \frac{4Q^2}{\kappa^2}[(c_4^2 - c_2^2) + K^2] + (c_4^2 - c_2^2)^2}}\, ,\\
+&v_{RT} = \sqrt{\frac{Q^2}{\kappa^2} + \frac{(c_2^2 + c_4^2)}{2} + \frac{1}{2} \sqrt{\frac{4Q^4}{\kappa^4} + \frac{4Q^2}{\kappa^2}[(c_4^2 - c_2^2) + K^2] + (c_4^2 - c_2^2)^2}}\, ,
+\end{align}
+if we take the limit \(\kappa \rightarrow 0\), we obtain
+\[\lim_{\kappa \rightarrow 0} v_S = \sqrt{c_2^2 - \frac{K^2}{2}}=\sqrt{\frac{\mu}{\rho}}\, ,\]
+that corresponds to the phase speed of the shear wave in classical media. And, if we take the high frequency limit (\(\kappa \rightarrow \infty\)), we find that
+\begin{align*}
+&\lim_{\kappa \rightarrow \infty}v_{RL} = c_3\, ,\\
+&\lim_{\kappa \rightarrow \infty}v_S = c_2\, ,\\
+&\lim_{\kappa \rightarrow \infty}v_{RT} = c_4\, .
+\end{align*}
 
+We can also compute the group speed \(g_i = \partial \omega_i/\partial \kappa\), to obtain
+\begin{align}
+&g_P = c_1 \, ,\\
+&g_{RL} = \frac{c_3^2 \kappa}{\omega_{RL}}\, ,\\
+&g_S = \frac{1}{2\omega_S}\left[(c_2^2 + c_4^2)\kappa - \frac{2Q^2[(c_4^2 - c_2^2) + K^2]\kappa + (c_4^2 + c_2^2)^2\kappa^3}{\sqrt{4Q^4 + 4Q^2[(c_4^2 - c_2^2) + K^2]\kappa^2 + (c_4^2 - c_2^2)^2 \kappa^4}}\right] \, ,\\
+&g_{RT} = \frac{1}{2\omega_{RT}}\left[(c_2^2 + c_4^2)\kappa + \frac{2Q^2[(c_4^2 - c_2^2) + K^2]\kappa + (c_4^2 + c_2^2)^2\kappa^3}{\sqrt{4Q^4 +  4Q^2[(c_4^2 - c_2^2) + K^2]\kappa^2 + (c_4^2 - c_2^2)^2 \kappa^4}}\right]\, ,
+\end{align}
+if we take the limit \(\kappa \rightarrow 0\), we obtain
+\begin{align*}
+&\lim_{\kappa \rightarrow 0}g_{RL} = 0\, ,\\
+&\lim_{\kappa \rightarrow 0}g_S = \lim_{\kappa \rightarrow 0} v_S = \sqrt{c_2^2 - \frac{K^2}{2}}=\sqrt{\frac{\mu}{\rho}}\, ,\\
+&\lim_{\kappa \rightarrow 0}g_{RT} = 0\, .
+\end{align*}
+
+And in the high frequency limit (\(\kappa \rightarrow \infty\)), we find that
+\begin{align*}
+&\lim_{\kappa \rightarrow \infty}g_{RL} = \lim_{\kappa \rightarrow \infty}v_{RL} = c_3\, ,\\
+&\lim_{\kappa \rightarrow \infty}g_S = \lim_{\kappa \rightarrow \infty}v_S = c_2\, ,\\
+&\lim_{\kappa \rightarrow \infty}g_{RT} = \lim_{\kappa \rightarrow \infty}v_{RT} = c_4\, .
+\end{align*}
+
+\subsubsection{Dispersion relations as functions of frequency}
+In some applications is useful to have the dispersion relations as functions of frequency instead of wavenumber. In this case they are given by
+\begin{align}
+&\kappa_P = \frac{\omega}{c_1}\, ,\\
+&\kappa_{RL} = \frac{\sqrt{\omega^2 - 2Q^2}}{c_3}\, ,\\
+&\kappa_S = \sqrt{\frac{D\omega^2}{2} + \frac{1}{2} \sqrt{D^2 \omega^4 - 4E\omega^4}}\, ,\\
+&\kappa_{RT} = \sqrt{\frac{D\omega^2}{2} - \frac{1}{2} \sqrt{D^2 \omega^4 - 4E\omega^4}}\, ,
+\end{align}
+with
+\begin{align*}
+&D = \frac{2Q^2}{\omega^2 c_4^2} - \frac{K^2 Q^2}{c_2^2 c_4^2 \omega^2} - \frac{1}{c_2^2} - \frac{1}{c_4^2}\, ,\\
+&E = \frac{1}{c_2^2 c_4^2} - \frac{2Q^2}{c_2^2 c_4^2 \omega^2}\, .
+\end{align*}
+
+And, equivalently, write the slowness for each wave, namely
+\begin{align}
+&s_P(\omega) \equiv \frac{1}{v_P(\omega)} = \frac{1}{c_1}\, ,\\
+&s_{RL}(\omega) \equiv \frac{1}{v_{RL}(\omega)} = \sqrt{\frac{1}{c_3} - \frac{2Q^2}{\omega^2 c_3^2}}\, ,\\
+&s_S(\omega)\equiv \frac{1}{v_S(\omega)} = \sqrt{\frac{D}{2} + \frac{1}{2} \sqrt{D^2 - 4E}}\, ,\\
+&s_{RT}(\omega) \equiv \frac{1}{v_{RT}(\omega)} = \sqrt{\frac{D}{2} - \frac{1}{2} \sqrt{D^2 - 4E}}\, .
+\end{align}
 
 \bibliographystyle{unsrtnat}
 \bibliography{bloch-cosserat}
