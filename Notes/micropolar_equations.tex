@@ -143,7 +143,7 @@ where,
 \begin{split}
 c_1^2 = \frac{\lambda +2\mu}{\rho},\quad &c_3^2 =\frac{\beta +2\gamma}{J},\\
 c_2^2 = \frac{\mu +\alpha}{\rho},\quad &c_4^2 =\frac{\gamma + \varepsilon}{J},\\
-K^2= \frac{2\alpha}{\rho},\quad &^2 =\frac{2\alpha}{J} \, ,
+K^2= \frac{2\alpha}{\rho},\quad &Q^2 =\frac{2\alpha}{J} \, ,
 \end{split}
 \end{equation*}
 
@@ -296,6 +296,155 @@ And, equivalently, write the slowness for each wave, namely
 &s_S(\omega)\equiv \frac{1}{v_S(\omega)} = \sqrt{\frac{D}{2} + \frac{1}{2} \sqrt{D^2 - 4E}}\, ,\\
 &s_{RT}(\omega) \equiv \frac{1}{v_{RT}(\omega)} = \sqrt{\frac{D}{2} - \frac{1}{2} \sqrt{D^2 - 4E}}\, .
 \end{align}
+
+\subsection{Reflection of a plane wave on a plane boundary}
+Let us consider now the problem of a plane boundary, as shown in the following schematic.
+\begin{figure}[h]
+  \centering
+  \includegraphics[scale=1]{img/reflection_schematic.pdf}
+  \caption{Schematic for analysis of reflected waves set up by a plane P-wave incident on the free surface of a micropolar half-space.}
+  \label{fig:reflection_schematic}
+\end{figure}
+
+If we consider waves lying on the \(zx\) plane, the equations of motions reduce to
+\begin{align*}
+&c_1^2\left[\pdv[2]{u_x}{x} + \pdv{u_z}{x}{z}\right] - c_2^2\left[\pdv{u_z}{x}{z} - \pdv[2]{u_x}{z}\right] - K^2\pdv{\phi_y}{z} = \ddot{u_x}\, ,\\
+&c_1^2\left[\pdv{u_x}{x}{z} + \pdv[2]{u_z}{z}\right] - c_2^2\left[\pdv{u_x}{x}{z} - \pdv[2]{u_z}{z}\right] + K^2\pdv{\phi_y}{x} = \ddot{u_z}\, ,\\
+&Q^2\left[\pdv{u_x}{z} - \pdv{u_z}{x}\right] + c_4^2\left[\pdv[2]{\phi_y}{x} + \pdv[2]{\phi_y}{z}\right] - 2Q^2\phi_y = \ddot{\phi_y}\, .
+\end{align*}
+
+And the strain and curvature tensors are
+\begin{align*}
+&\gamma = \begin{bmatrix}
+  \pdv{u_x}{x} &0 &\pdv{u_z}{x} + \phi_y\\
+  0 & 0 &0\\
+  \pdv{u_x}{z} - \phi_y &0 &\pdv{u_z}{z}
+\end{bmatrix}\, ,\\
+&\kappa = \begin{bmatrix}
+  0 &\pdv{\phi_y}{x} &0\\
+  0 &0 &0\\
+  0 &\pdv{\phi_y}{z} &0
+\end{bmatrix}\, .
+\end{align*}
+
+While the force-stress and  couple-stress tensor read
+\begin{align*}
+&\sigma = \begin{bmatrix}
+  (\lambda + 2\mu)\pdv{u_x}{x} + \lambda \pdv{u_x}{z} &0 &(\mu + \alpha)\pdv{u_x}{z} + (\mu - \alpha)\pdv{u_z}{x} - 2\alpha \phi_y\\
+  0 &\lambda\left(\pdv{u_x}{x} + \pdv{u_z}{z}\right) & 0\\
+  (\mu - \alpha)\pdv{u_x}{z} + (\mu + \alpha)\pdv{u_z}{x} + 2\alpha \phi_y &0 &\lambda\pdv{u_x}{x} + (\lambda + 2\mu)\pdv{u_z}{z}
+\end{bmatrix}\, ,\\
+&\mu = \begin{bmatrix}
+  0 &(\gamma - \epsilon)\pdv{\phi_y}{x} &0\\
+  (\gamma + \epsilon)\pdv{\phi_y}{x} &0 &(\gamma + \epsilon)\pdv{\phi_y}{z}\\
+  0 &(\gamma - \epsilon)\pdv{\phi_y}{z} &0
+\end{bmatrix}\, .
+\end{align*}
+
+For this problem the following boundary conditions should be satisfied
+\[\sigma_{zx} = \sigma_{zz} = \mu_{zy} = 0\, ,\]
+with
+\begin{align*}
+&\sigma_{zx} = (\mu - \alpha)\pdv{u_x}{z} + (\mu + \alpha)\pdv{u_z}{x} + 2\alpha \phi_y\, ,\\
+&\sigma_{zz} = \lambda\pdv{u_x}{x} + (\lambda + 2\mu)\pdv{u_z}{z}\, ,\\
+&\mu_{zy} = (\gamma - \epsilon)\pdv{\phi_y}{z}\, .
+\end{align*}
+
+Since the problem is limited to the \(zx\) plane, all the waves can be described by 3 scalar potentials, namely:
+\begin{itemize}
+
+\item For P:
+\begin{displaymath}
+  u^P = \left(\pdv{\psi^P}{x}, 0, \pdv{\psi^P}{z}\right)\, .
+\end{displaymath}
+
+\item For SV:
+\begin{displaymath}
+  u^S = \left(-\pdv{\psi^S}{z}, 0, \pdv{\psi^S}{x}\right)\, .
+\end{displaymath}
+
+\item For RT:
+\begin{displaymath}
+  \phi^{R} = \left(0, \pdv{\psi^{R}}{z}, 0\right)\, .
+\end{displaymath}
+\end{itemize}
+
+Leading to the following (partial) traction vectors
+\begin{align*}
+&T^P = \left(2\mu\pdv{\psi^P}{z}{x} + 2\alpha\pdv{\psi^R}{z}, 0, \lambda\laplacian\psi^P + 2\mu\pdv[2]{\psi^P}{z}\right)\, ,\\
+&T^S = \left(\mu\left(\pdv[2]{\psi^S}{x} - \pdv[2]{\psi^S}{z}\right) + \alpha\laplacian\psi^S + 2\alpha\pdv{\psi^{RT}}{z}, 0, 2\mu\pdv{\psi^S}{z}{x}\right)\, ,\\
+&M^{R} = \left(0, (\gamma - \epsilon)\pdv[2]{\psi^{R}}{z}, 0\right)\, .
+\end{align*}
+
+The potentials can be written as
+\begin{align*}
+&\psi^P = \psi^{P,i} + \psi^{P,r}\, ,\\
+&\psi^S = \psi^{R,r}\, ,\\
+&\psi^R = \psi^{R,r}\, ,
+\end{align*}
+where the superscripts \(i\) and \(r\) refer to the incident and reflected waves. They can be written as plane waves
+\begin{align*}
+\psi^{P,i} = A\exp\left[i\omega(px - p_1z - t)\right]\, ,\\
+\psi^{P,r} = B\exp\left[i\omega(px + p_1z - t)\right]\, ,\\
+\psi^{S,r} = C\exp\left[i\omega(px + p_2z - t)\right]\, ,\\
+\psi^{R,r} = D\exp\left[i\omega(px + p_4z - t)\right]\, ,\\
+\end{align*}
+with
+\[p=\frac{\sin i}{v_1} = \frac{\sin j}{v_2} = \frac{\sin l}{v_4}\, ,\]
+the horizontal components of the slowness vectors, and,
+\[p_1 = \frac{\cos i}{v_1},\quad p_2 = \frac{\cos j}{v_2},\quad p_4 = \frac{\cos l}{v_4},\]
+the vertical components of the slowness vectors.
+
+Taking into account that
+\begin{align*}
+&\lambda = \rho c_1^2 - \rho c_2^2, &p_1^2 = \frac{1}{c_1^2} - p^2,\\
+&\mu = \rho c_2^2 , &p_2^2 = \frac{1}{v_2^2} - p^2,\\
+&2\alpha = \rho K^2, &p_4^2 = \frac{1}{v_4^2} - p^2,\\
+\end{align*}
+we get
+\begin{align*}
+v_2^2 p p_1 (A - B) + (1 - 2v_2^2 p^2)C - \frac{K^2}{2c_2^2}C = 0\, ,\\
+(1 - 2c^2p^2)(A + B) + 2c_2p p_2 C = 0\, ,
+\end{align*}
+and
+\[D\omega^2 p_4^2 (\gamma - \epsilon) = 0\, .\]
+The last equation implies \(D = 0\), meaning that an incident P-wave does not generate a reflected RT-wave.
+
+If we solve the last two equation for the ratios \(B/A\) and \(C/A\), we get
+\begin{align*}
+&\frac{B}{A} = \frac{4c_2^4 p^2 p_1 p_2 - \left[\frac{c_2^2}{v_2^2}(1 - 2c_2^2 p^2)(1 - 2v_2^2 p^2) - \frac{K^2}{2v_2^2}(1 - 2c_2 p^2)\right]} {4c_2^4 p^2 p_1 p_2 + \left[\frac{c_2^2}{v_2^2}(1 - 2c_2^2 p^2)(1 - 2v_2^2 p^2) - \frac{K^2}{2v_2^2}(1 - 2c_2 p^2)\right]}\, ,\\
+&\frac{C}{A} = \frac{4c_2^2 p p_1 (1 - 2c_2^2 p^2)} {4c_2^4 p^2 p_1 p_2 + \left[\frac{c_2^2}{v_2^2}(1 - 2c_2^2 p^2)(1 - 2v_2^2 p^2) - \frac{K^2}{2v_2^2}(1 - 2c_2 p^2)\right]}\, ,
+\end{align*}
+where the limits \(v_2 \rightarrow c_2\) and \(K \rightarrow 0\) clearly lead to the classical version of the coefficients \citep{AkiAndRichards2002}. And, we can obtain the reflection coefficients for the displacements multiplying the amplitude of the potential by the slowness of each wave.
+
+The reflection coefficients for displacements for an incident P-wave are
+\begin{align}
+&\acute{P}\grave{P} = \frac{4c_2^4 p^2 p_1 p_2 - \left[\frac{c_2^2}{v_2^2}(1 - 2c_2^2 p^2)(1 - 2v_2^2 p^2) - \frac{K^2}{2v_2^2}(1 - 2c_2 p^2)\right]} {4c_2^4 p^2 p_1 p_2 + \left[\frac{c_2^2}{v_2^2}(1 - 2c_2^2 p^2)(1 - 2v_2^2 p^2) - \frac{K^2}{2v_2^2}(1 - 2c_2 p^2)\right]}\, ,\\
+&\acute{P}\grave{S} = \frac{4\frac{c_1}{v_2}c_2^2 p p_1 (1 - 2c_2^2 p^2)} {4c_2^4 p^2 p_1 p_2 + \left[\frac{c_2^2}{v_2^2}(1 - 2c_2^2 p^2)(1 - 2v_2^2 p^2) - \frac{K^2}{2v_2^2}(1 - 2c_2 p^2)\right]}\, .
+\end{align}
+
+Similarly, the reflection coefficients for displacements for an incident S-wave are
+\begin{align}
+&\acute{S}\grave{S} = -\frac{4c_2^4 p^2 p_1 p_2 -  \left[\frac{c_2^2}{v_2^2}(1 - 2c_2^2 p^2)(1 - 2v_2^2 p^2) - \frac{K^2}{2v_2^2}(1 - 2c_2^2 p^2)\right]} {4c_2^4 p^2 p_1 p_2 +  \left[\frac{c_2^2}{v_2^2}(1 - 2c_2^2 p^2)(1 - 2v_2^2 p^2) - \frac{K^2}{2v_2^2}(1 - 2c_2^2 p^2)\right]}\, ,\\
+&\acute{S}\grave{P} = \frac{4 \frac{v_2}{c_1}\frac{c_2^4}{v_2^2} p p_2(1 - 2 v_2^2 p^2) -  2 \frac{c_2^2}{v_2^2} p p_2 K^2} {4c_2^4 p^2 p_1 p_2 +  \left[\frac{c_2^2}{v_2^2}(1 - 2c_2^2 p^2)(1 - 2v_2^2 p^2) - \frac{K^2}{2v_2^2}(1 - 2c_2^2 p^2)\right]}\, ,
+\end{align}
+where the limits \(v_2 \rightarrow c_2\) and \(K \rightarrow 0\) also lead to the classical version of the coefficients.
+
+If we repeat the same process for the incident RT-wave we obtain the following coefficients
+\begin{align}
+&\acute{R}\grave{R} = -1\, ,\\
+&\acute{R}\grave{P} = -\frac{3i v_2 p_4 K^2}{2 \omega c_2^2 v_4 p p_1}\, ,\\
+&\acute{R}\grave{S} = \frac{3i c_1 p_4 K^2(1 - 2c_2^2 p^2)}{4 \omega c_2^4 v_4^2 p p_1}\, ,
+\end{align}
+where we highlight that the coefficients \(\acute{R}\grave{P}\) and \(\acute{R}\grave{S}\) have units of length and represent evanescent waves that decay with \(z\).
+
+In the general case we have the following scattering matrix
+\[\begin{pmatrix}
+\acute{P}\grave{P} &\acute{S}\grave{P} &\acute{R}\grave{P}\\
+\acute{P}\grave{S} &\acute{S}\grave{S} &\acute{R}\grave{S}\\
+0 &0 &\acute{R}\grave{R}
+\end{pmatrix}\, .\]
+
 
 \bibliographystyle{unsrtnat}
 \bibliography{bloch-cosserat}
