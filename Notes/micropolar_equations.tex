@@ -446,6 +446,57 @@ In the general case we have the following scattering matrix
 \end{pmatrix}\, .\]
 
 
+\section{Waves in Couple-Stress Theory}
+As presented in Hadjesfandiari and Dargush(), the equations of motion in terms of displacements for the Couple-Stress Theory (CST) are
+\[c_1^2 \nabla (\nabla \cdot \mathbf{u}) - c_2^2\nabla\times \nabla \times \mathbf{u} + l^2 c_2^2 \nabla^2 \nabla \times \nabla \times \mathbf{u} = \ddot{\mathbf{u}}\, ,\]
+with
+\begin{align*}
+&c_1^2 = \frac{\lambda + 2\mu}{\rho}\, ,\\
+&c_2^2 = \frac{\mu}{\rho}\, ,\\
+&l^2 = \frac{\eta}{\mu}\, .
+\end{align*}
+
+For this model the dispersion relations are much simpler, i.e.,
+\begin{align*}
+&\omega_P^2 = c_1^2 \kappa^2\, ,\\
+&\omega_S^2 = c_2^2 \kappa^2 (1 + \kappa^2 l^2)\, ,
+\end{align*}
+or, isolating \(\kappa\),
+\begin{align*}
+&\kappa_P^2 = \frac{\omega^2}{c_2^2}, ,\\
+&\kappa_S^2 = \frac{1}{2 l^2}\left[\pm\sqrt{1 + \frac{4\omega^2 l^2}{c_2^2}} - 1\right]\, ,
+\end{align*}
+we can see that the number inside the square root is always greater than 1. We should, then, only consider the positive root. The other root presents an evanescent wave that should arise when satisfying boundary conditions.
+
+The phase speeds are given by
+\begin{align*}
+&v_P = c_1\, ,\\
+&v_S(\kappa) = c_2\sqrt{1 + \kappa^2 l^2}\, ,
+\end{align*}
+or as a function of frequency
+\begin{align*}
+&v_P = c_1\, ,\\
+&v_S(\omega) = c_2\sqrt{1 + \frac{1}{2}\left[\sqrt{1 + \frac{4\omega^2 l^2}{c_2^2}} - 1\right]}\, .
+\end{align*}
+If we take the limit \(\kappa \rightarrow 0\), we obtain
+\[\lim_{\kappa \rightarrow 0} v_S = c_2\, ,\]
+and, taking the limit \(\kappa \rightarrow \infty\), we obtain
+\[\lim_{\kappa \rightarrow \infty} v_S \rightarrow  \infty\, .\]
+
+Group speeds are given by
+\begin{align*}
+&g_P = c_1\, ,\\
+&g_S = c_2 \frac{1 + 2\kappa^2 l^2}{\sqrt{1 + \kappa^2 l^2}}\, ,
+\end{align*}
+taking the same limits, we obtain
+\[\lim_{\kappa \rightarrow 0} g_S = c_2\, ,\]
+and
+\[\lim_{\kappa \rightarrow \infty} g_S \rightarrow  \infty\, .\]
+
+
+
+
+
 \bibliographystyle{unsrtnat}
 \bibliography{bloch-cosserat}
 
