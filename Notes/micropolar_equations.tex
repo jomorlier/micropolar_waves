@@ -280,21 +280,21 @@ In some applications is useful to have the dispersion relations as functions of 
 \begin{align}
 &\kappa_P = \frac{\omega}{c_1}\, ,\\
 &\kappa_{RL} = \frac{\sqrt{\omega^2 - 2Q^2}}{c_3}\, ,\\
-&\kappa_S = \sqrt{\frac{D\omega^2}{2} + \frac{1}{2} \sqrt{D^2 \omega^4 - 4E\omega^4}}\, ,\\
-&\kappa_{RT} = \sqrt{\frac{D\omega^2}{2} - \frac{1}{2} \sqrt{D^2 \omega^4 - 4E\omega^4}}\, ,
+&\kappa_S = \sqrt{\frac{D}{2} + \frac{1}{2} \sqrt{D^2 - 4E}}\, ,\\
+&\kappa_{RT} = \sqrt{\frac{D}{2} - \frac{1}{2} \sqrt{D^2 - 4E}}\, ,
 \end{align}
 with
 \begin{align*}
-&D = \frac{2Q^2}{\omega^2 c_4^2} - \frac{K^2 Q^2}{c_2^2 c_4^2 \omega^2} - \frac{1}{c_2^2} - \frac{1}{c_4^2}\, ,\\
-&E = \frac{1}{c_2^2 c_4^2} - \frac{2Q^2}{c_2^2 c_4^2 \omega^2}\, .
+&D = \frac{1}{2c_2^2 c_4^2}\left[(c_2^2 + c_4^2)\omega^2 - 2Q^2\left(c_2^2 - \frac{K^2}{2}\right)\right]\, ,\\
+&E = \frac{2Q^2 \omega^2}{c_2^2 c_4^2} - \frac{\omega^4}{c_2^2 c_4^2}\, .
 \end{align*}
 
 And, equivalently, write the slowness for each wave, namely
 \begin{align}
 &s_P(\omega) \equiv \frac{1}{v_P(\omega)} = \frac{1}{c_1}\, ,\\
 &s_{RL}(\omega) \equiv \frac{1}{v_{RL}(\omega)} = \sqrt{\frac{1}{c_3} - \frac{2Q^2}{\omega^2 c_3^2}}\, ,\\
-&s_S(\omega)\equiv \frac{1}{v_S(\omega)} = \sqrt{\frac{D}{2} + \frac{1}{2} \sqrt{D^2 - 4E}}\, ,\\
-&s_{RT}(\omega) \equiv \frac{1}{v_{RT}(\omega)} = \sqrt{\frac{D}{2} - \frac{1}{2} \sqrt{D^2 - 4E}}\, .
+&s_S(\omega)\equiv \frac{1}{v_S(\omega)} = \frac{\kappa_S}{\omega}\, ,\\
+&s_{RT}(\omega) \equiv \frac{1}{v_{RT}(\omega)} = \frac{\kappa_R}{\omega}\, .
 \end{align}
 
 \subsection{Reflection of a plane wave on a plane boundary}
