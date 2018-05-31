@@ -9,6 +9,7 @@
 \usepackage{physics}
 \usepackage{float}
 \usepackage{cancel}
+\usepackage[parfill]{parskip}
 
 
 \hypersetup{
@@ -417,24 +418,24 @@ If we solve the last two equation for the ratios \(B/A\) and \(C/A\), we get
 \end{align*}
 where the limits \(v_2 \rightarrow c_2\) and \(K \rightarrow 0\) clearly lead to the classical version of the coefficients \citep{AkiAndRichards2002}. And, we can obtain the reflection coefficients for the displacements multiplying the amplitude of the potential by the slowness of each wave.
 
-The reflection coefficients for displacements for an incident P-wave are
+The reflection coefficients for displacements for an incident P-wave are (following the notation of \citep{AkiAndRichards2002})
 \begin{align}
-&\acute{P}\grave{P} = \frac{4c_2^4 p^2 p_1 p_2 - \left[\frac{c_2^2}{v_2^2}(1 - 2c_2^2 p^2)(1 - 2v_2^2 p^2) - \frac{K^2}{2v_2^2}(1 - 2c_2 p^2)\right]} {4c_2^4 p^2 p_1 p_2 + \left[\frac{c_2^2}{v_2^2}(1 - 2c_2^2 p^2)(1 - 2v_2^2 p^2) - \frac{K^2}{2v_2^2}(1 - 2c_2 p^2)\right]}\, ,\\
-&\acute{P}\grave{S} = \frac{4\frac{c_1}{v_2}c_2^2 p p_1 (1 - 2c_2^2 p^2)} {4c_2^4 p^2 p_1 p_2 + \left[\frac{c_2^2}{v_2^2}(1 - 2c_2^2 p^2)(1 - 2v_2^2 p^2) - \frac{K^2}{2v_2^2}(1 - 2c_2 p^2)\right]}\, .
+&\acute{P}\grave{P} = \frac{-\left[\left(\frac{1}{c_2^2} - 2 p^2\right)\left(\frac{1}{v_2^2} - 2 p^2\right) - \frac{K^2}{2 c_2^2 v_2^2}\left(\frac{1}{c_2^2} - 2 p^2\right)\right] + 4 p^2 p_1 p_2} {\left[\left(\frac{1}{c_2^2} - 2 p^2\right)\left(\frac{1}{v_2^2} - 2 p^2\right) - \frac{K^2}{2 c_2^2 v_2^2}\left(\frac{1}{c_2^2} - 2 p^2\right)\right] + 4 p^2 p_1 p_2}\, ,\\
+&\acute{P}\grave{S} = \frac{4 \frac{c_1}{v_2} p p_1\left(\frac{1}{c_2^2} - 2 p^2\right)} {\left[\left(\frac{1}{c_2^2} - 2 p^2\right)\left(\frac{1}{v_2^2} - 2 p^2\right) - \frac{K^2}{2 c_2^2 v_2^2}\left(\frac{1}{c_2^2} - 2 p^2\right)\right] + 4 p^2 p_1 p_2}\, .\\
 \end{align}
 
 Similarly, the reflection coefficients for displacements for an incident S-wave are
 \begin{align}
-&\acute{S}\grave{S} = -\frac{4c_2^4 p^2 p_1 p_2 -  \left[\frac{c_2^2}{v_2^2}(1 - 2c_2^2 p^2)(1 - 2v_2^2 p^2) - \frac{K^2}{2v_2^2}(1 - 2c_2^2 p^2)\right]} {4c_2^4 p^2 p_1 p_2 +  \left[\frac{c_2^2}{v_2^2}(1 - 2c_2^2 p^2)(1 - 2v_2^2 p^2) - \frac{K^2}{2v_2^2}(1 - 2c_2^2 p^2)\right]}\, ,\\
-&\acute{S}\grave{P} = \frac{4 \frac{v_2}{c_1}\frac{c_2^4}{v_2^2} p p_2(1 - 2 v_2^2 p^2) -  2 \frac{c_2^2}{v_2^2} p p_2 K^2} {4c_2^4 p^2 p_1 p_2 +  \left[\frac{c_2^2}{v_2^2}(1 - 2c_2^2 p^2)(1 - 2v_2^2 p^2) - \frac{K^2}{2v_2^2}(1 - 2c_2^2 p^2)\right]}\, ,
+&\acute{S}\grave{S} = \frac{\left[\left(\frac{1}{c_2^2} - 2 p^2\right)\left(\frac{1}{v_2^2} - 2 p^2\right) - \frac{K^2}{2 c_2^2 v_2^2}\left(\frac{1}{c_2^2} - 2 p^2\right)\right] - 4 p^2 p_1 p_2} {\left[\left(\frac{1}{c_2^2} - 2 p^2\right)\left(\frac{1}{v_2^2} - 2 p^2\right) - \frac{K^2}{2 c_2^2 v_2^2}\left(\frac{1}{c_2^2} - 2 p^2\right)\right] + 4 p^2 p_1 p_2}\, ,\\
+&\acute{S}\grave{P} = \frac{4 \frac{v_2}{c_1} p p_2\left(\frac{1}{v_2^2} - 2 p^2\right) - \frac{2 p p_2 K^2}{v_2^2 c_2^2}} {\left[\left(\frac{1}{c_2^2} - 2 p^2\right)\left(\frac{1}{v_2^2} - 2 p^2\right) - \frac{K^2}{2 c_2^2 v_2^2}\left(\frac{1}{c_2^2} - 2 p^2\right)\right] + 4 p^2 p_1 p_2}\, .\\
 \end{align}
 where the limits \(v_2 \rightarrow c_2\) and \(K \rightarrow 0\) also lead to the classical version of the coefficients.
 
 If we repeat the same process for the incident RT-wave we obtain the following coefficients
 \begin{align}
 &\acute{R}\grave{R} = -1\, ,\\
-&\acute{R}\grave{P} = -\frac{3i v_2 p_4 K^2}{2 \omega c_2^2 v_4 p p_1}\, ,\\
-&\acute{R}\grave{S} = \frac{3i c_1 p_4 K^2(1 - 2c_2^2 p^2)}{4 \omega c_2^4 v_4^2 p p_1}\, ,
+&\acute{R}\grave{P} = -\frac{3i c_1 p_4 K^2}{2 \omega c_2^2 v_4 p p_1}\, ,\\
+&\acute{R}\grave{S} = \frac{3i v_2 p_4 K^2\left(\frac{1}{c_2^2} - 2 p^2\right)}{4 \omega c_2^2 v_4^2 p p_1}\, ,
 \end{align}
 where we highlight that the coefficients \(\acute{R}\grave{P}\) and \(\acute{R}\grave{S}\) have units of length and represent evanescent waves that decay with \(z\).
 
@@ -491,8 +492,67 @@ Group speeds are given by
 taking the same limits, we obtain
 \[\lim_{\kappa \rightarrow 0} g_S = c_2\, ,\]
 and
-\[\lim_{\kappa \rightarrow \infty} g_S \rightarrow  \infty\, .\]
+\[\lim_{\kappa \rightarrow \infty} g_S \rightarrow  \infty\, ,\]
+meaning that the speed of energy flow increases as the frequency increases.
 
+\subsection{Reflection of a plane wave on a plane boundary}
+
+We can repeat the process followed before to obtain reflection coefficients for the case of the CST. For completeness some of the steps will be repeated in this section.
+
+The motion is constrained to the plane \(zx\) plane, what gives the following displacement vector
+\[\mathbf{u} = (u_x, 0, u_z)\, ,\]
+the following infinitesimal strain and rotation tensor
+\begin{align*}
+  &\epsilon = \begin{bmatrix}
+    \pdv{u_x}{x} &0 &\frac{1}{2}\left(\pdv{u_x}{z} + \pdv{u_z}{x}\right)\\
+    0 &0 &0\\
+    \frac{1}{2}\left(\pdv{u_x}{z} + \pdv{u_z}{x}\right) &0 &\pdv{u_z}{z}
+    \end{bmatrix}\, ,\\
+  &\omega = \begin{bmatrix}
+    0 &0 &\frac{1}{2}\left(\pdv{u_x}{z} - \pdv{u_z}{x}\right)\\
+    0 &0 &0\\
+    \frac{1}{2}\left(\pdv{u_z}{x} - \pdv{u_x}{z}\right) &0 &0
+    \end{bmatrix}\, ,
+\end{align*}
+and the following stress tensor
+\[\sigma = \begin{bmatrix}
+  (\lambda + 2\mu)\pdv{u_x}{x} + \lambda \pdv{u_z}{z} &0 &\mu\left(\pdv{u_x}{z} + \pdv{u_z}{x}\right) + \frac{\eta}{2}\laplacian \left(\pdv{u_x}{z} - \pdv{u_z}{x}\right)\\
+  0 &0 &0\\
+  \frac{\mu}{2}\left(\pdv{u_x}{z} + \pdv{u_z}{x}\right) - \eta\laplacian\left(\pdv{u_x}{z} - \pdv{u_z}{x}\right) &0 &(\lambda + 2\mu)\pdv{u_z}{z} + \lambda\pdv{u_x}{x}
+\end{bmatrix}\, .\]
+
+In this case the traction-free boundary conditions imply \(\sigma_{zx} = \sigma_{zy}=\sigma_{zz} = 0\), that is
+\begin{align*}
+  &\sigma_{zx} = \frac{\mu}{2}\left(\pdv{u_x}{z} + \pdv{u_z}{x}\right) - \eta\laplacian\left(\pdv{u_x}{z} - \pdv{u_z}{x}\right) = 0\\
+  &\sigma_{zz} = (\lambda + 2\mu)\pdv{u_z}{z} + \lambda \pdv{u_x}{x} = 0\, ,
+\end{align*}
+and we know that
+\begin{align*}
+  &\mathbf{u}^P = \left(\pdv{\psi^P}{x}, 0, \pdv{\psi^P}{z}\right)\, ,\\
+  &\mathbf{u}^S = \left(-\pdv{\psi^S}{z}, 0, \pdv{\psi^S}{x}\right)\, ,
+\end{align*}
+where the superscript refer to the type of wave and \(\psi^i\) is a scalar potential.
+
+Thus, we have the following tractions
+\begin{align*}
+  & T^P = \left(\mu\pdv{\psi^P}{z}{x}, 0, \lambda \pdv[2]{\psi^P}{x} + (\lambda + 2\mu)\pdv[2]{\psi^P}{z}\right)\, ,\\
+  & T^S = \left(\frac{\mu}{2}\left(\pdv[2]{\psi^S}{x} - \pdv[2]{\psi^S}{z}\right) + \eta \laplacian\laplacian \psi^S, 0,
+                2\mu\pdv{\psi^S}{z}{x}\right)\, .
+\end{align*}
+
+
+If we solve the resulting system of equations we obtain the following reflection coefficients for displacements
+\begin{align*}
+  &\acute{P}\grave{P} = \frac{-\left(\frac{1}{c_2^2} - 2 p^2\right)\left(\frac{1}{v_2^2} - 2 p^2 + \frac{2l^2\omega^2}{v_2^4}\right) + 4 p^2 p_1 p_2}
+     {\left(\frac{1}{c_2^2} - 2 p^2\right)\left(\frac{1}{v_2^2} - 2 p^2 + \frac{2l^2\omega^2}{v_2^4}\right) + 4 p^2 p_1 p_2}\, ,\\
+  &\acute{P}\grave{S} = \frac{4\frac{c_1}{v_2}p p_1\left(\frac{1}{c_2^2} - 2 p^2\right)}
+     {\left(\frac{1}{c_2^2} - 2 p^2\right)\left(\frac{1}{v_2^2} - 2 p^2 + \frac{2l^2\omega^2}{v_2^4}\right) + 4 p^2 p_1 p_2}\, ,\\
+  &\acute{S}\grave{S} = \frac{\left(\frac{1}{c_2^2} - 2 p^2\right)\left(\frac{1}{v_2^2} - 2 p^2 + \frac{2l^2\omega^2}{v_2^4}\right) - 4 p^2 p_1 p_2}
+     {\left(\frac{1}{c_2^2} - 2 p^2\right)\left(\frac{1}{v_2^2} - 2 p^2 + \frac{2l^2\omega^2}{v_2^4}\right) + 4 p^2 p_1 p_2}\, ,\\
+  &\acute{S}\grave{P} = \frac{4\frac{v_2}{c_1}p p_2\left(\frac{1}{v_2^2} - 2 p^2 + \frac{2l^2\omega^2}{v_2^4}\right)}
+     {\left(\frac{1}{c_2^2} - 2 p^2\right)\left(\frac{1}{v_2^2} - 2 p^2 + \frac{2l^2\omega^2}{v_2^4}\right) + 4 p^2 p_1 p_2}\, ,\\
+\end{align*}
+where the limits \(v_2 \rightarrow c_2\) and \(K \rightarrow 0\) clearly lead to the classical version of the coefficients \citep{AkiAndRichards2002}.
 
 
 
