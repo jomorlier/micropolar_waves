@@ -10,6 +10,7 @@
 \usepackage{float}
 \usepackage{cancel}
 \usepackage[parfill]{parskip}
+\usepackage{caption}
 
 
 \hypersetup{
@@ -25,6 +26,14 @@
 	pdfsubject={Elastodynamics},
 	pdfpagemode=UseOutlines,
 	pdfstartview=FitH}
+
+
+\captionsetup{
+	margin=20pt,
+	font=small,
+	labelfont=bf,
+	labelsep=period
+}
 
 
 \title{\textbf{The micropolar continuum theory: a revision from the wave propagation perspective}}
@@ -553,6 +562,14 @@ If we solve the resulting system of equations we obtain the following reflection
      {\left(\frac{1}{c_2^2} - 2 p^2\right)\left(\frac{1}{v_2^2} - 2 p^2 + \frac{2l^2\omega^2}{v_2^4}\right) + 4 p^2 p_1 p_2}\, ,\\
 \end{align*}
 where the limits \(v_2 \rightarrow c_2\) and \(K \rightarrow 0\) clearly lead to the classical version of the coefficients \citep{AkiAndRichards2002}.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=5in]{img/{CST_plane_wave-L=0.01}.png}\\
+  \includegraphics[width=5in]{img/{CST_plane_wave-L=0.03}.png}\\
+  \includegraphics[width=5in]{img/{CST_plane_wave-L=0.1}.png}\\
+  \caption{Reflection of an incident P-wave on a halfspace for different length scales. The angle of incidence is \(\pi/6\) rad, the P-wave speed is \(c_1=2\), the (classical) S-wave speed is \(c_2=1\), and the length scales are \(l = \{0.01, 0.03, 0.1\}\) (from top to bottom). It is clearly seen how the dispersion increases while the length scale parameter increases.}
+\end{figure}
 
 
 
