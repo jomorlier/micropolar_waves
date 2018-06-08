@@ -4,7 +4,6 @@
 \usepackage[utf8]{inputenc}
 \usepackage{graphicx}
 \usepackage[round]{natbib}
-\usepackage{subfig}
 \usepackage{hyperref}
 \usepackage{physics}
 \usepackage{float}
@@ -133,8 +132,6 @@ Using \eqref{eq:constitutive} and \eqref{eq:kinematics} in the lineal momentum a
 \end{subequations}
 
 
-
-
 \section{Waves in micropolar solids}
 \subsection{Equations in terms of potentials}
 
@@ -143,26 +140,20 @@ To identify types of propagating waves that can arise in the micropolar medium i
 \vb{u} &= \grad \phi + \curl\vb{\Gamma}\, ,\\
 \vb{\varphi} &= \grad \tau + \curl\vb{E}\, ,
 \end{align*}
-
 subject to the conditions:
-
 \begin{align*}
 &\div\vb{\Gamma} = 0\\
 &\div\vb{E} = 0\, .
 \end{align*}
 
 Using the above in the displacements equations of motion (repeated here for convenience)
-
 \begin{subequations}\label{eq:disp_vector}
   \begin{align}
     & (\lambda + 2\mu) \grad\div\vb{u} - (\mu + \alpha)\curl\curl\vb{u} + 2\alpha \curl\vb{\varphi} + \vb{f} = \rho \pdv[2]{\vb{u}}{t}, \\
     & (\beta + 2\gamma) \grad\div\vb{\varphi} - (\gamma + \varepsilon) \curl\curl\vb{\varphi} +  2\alpha \curl\vb{u} - 4\alpha\vb{\varphi} + \vb{c} = J \pdv[2]{\vb{\varphi}}{t}\, .
   \end{align}
 \end{subequations}
-
-
 yields after some manipulations:
-
 \begin{subequations}
   \begin{align}\label{eq:potential_waves}
     c_1^2 \laplacian\phi &= \pdv[2]{\phi}{t}\\
@@ -181,16 +172,13 @@ where we can see that the equations for the scalar potentials are uncoupled, whi
 for the vector potentials are coupled.
 
 To arrive at \eqref{eq:potential_waves} we have neglected body forces and body couples and have written the displacement equations of motions in the alternative form:
-
 \begin{subequations}
   \begin{align}\label{eq:disp_waves}
     & c_1^2 \grad\div\vb{u} - c_2^2\curl\curl\vb{u} + K^2 \curl\vb{\varphi} =  \pdv[2]{\vb{u}}{t}, \\
-    & c_3^2 \grad\div\vb{\varphi} - c_4^2 \curl\curl\vb{\varphi} +  Q^2 \curl\vb{u} - 2Q^2 \vb{\varphi} = \pdv[2]{\vb{\varphi}}{t}\, .
+    & c_3^2 \grad\div\vb{\varphi} - c_4^2 \curl\curl\vb{\varphi} +  Q^2 \curl\vb{u} - 2Q^2 \vb{\varphi} = \pdv[2]{\vb{\varphi}}{t}\, ,
   \end{align}
 \end{subequations}
-
 where we have used the following relations:
-
 \begin{equation*}
 \begin{split}
 c_1^2 = \frac{\lambda +2\mu}{\rho},\quad &c_3^2 =\frac{\beta +2\gamma}{J},\\
@@ -201,27 +189,19 @@ K^2= \frac{2\alpha}{\rho},\quad &Q^2 =\frac{2\alpha}{J} \, ,
 
 
 
-
-
 \subsection{Dispersion relations}
-Writing the potentials as plane waves of amplitude $ \vb{A}$ and $ \vb{B}$, wave vector $\kappa$ and circular frequency $\omega$
-
+Writing the vector potentials as plane waves of amplitude $ \vb{A}$ and $ \vb{B}$, wave number $\kappa$ and circular frequency $\omega$ that propagate along the \(x\) axis, 
 \begin{align*}
 \vb{\Gamma} &= \vb{A}\exp(i\kappa x - i\omega t)\\
 \vb{E} &= \vb{B}\exp(i\kappa x - i\omega t)\, ,
 \end{align*}
-
-
 and using these in the equations of motion yields:
-
 \[\begin{bmatrix}
 M_{11} &M_{12}\\
 M_{21} &M_{22}\end{bmatrix}
 \begin{Bmatrix} \vb{A}\\ \vb{B}\end{Bmatrix}
 = \vb{0}\, ,\]
-
 where
-
 \begin{align*}
 &M_{11} =
 (c_{2}^{2} \kappa^{2} - \omega^{2})
@@ -229,19 +209,19 @@ where
 1 & 0 & 0\\
 0 & 1 & 0 \\
 0 & 0 & 1
-\end{bmatrix}\\
+\end{bmatrix}\, ,\\
 &M_{12} =
 \begin{bmatrix}
 0 & 0 & 0\\
 0 & 0 & i K^{2} \kappa\\
 0 & -i K^{2} \kappa & 0
-\end{bmatrix}\\
+\end{bmatrix}\, ,\\
 &M_{21} =
 \begin{bmatrix}
 0 & 0 & 0 \\
 0 & 0 & i Q^{2} \kappa \\
 0 & -i Q^{2} \kappa & 0 
-\end{bmatrix}\\
+\end{bmatrix}\, ,\\
 &M_{22} =
 (2 Q^{2} + c_{4}^{2} \kappa^{2} - \omega^{2})\begin{bmatrix}
 1 &0 &0\\
@@ -250,20 +230,17 @@ where
 \end{bmatrix}\, .
 \end{align*}
 
-For non-trivial solutions it is required that
-
+For non-trivial solutions to exist it is required that
 \[\det\begin{bmatrix}
 M_{11} &M_{12}\\
 M_{21} &M_{22}\end{bmatrix}=0\, ,\]
-
-which leads to the following frequency-wave number (or dispersion) relations
-
+which leads to the following frequency-wave number (or dispersion) relations for the coupled waves
 \begin{equation*}
 \omega^2 = Q^{2} + \frac{c_{2}^{2} \kappa^{2}}{2} + \frac{c_{4}^{2} \kappa^{2}}{2} \mp \frac{1}{2} \sqrt{4 K^{2} Q^{2} \kappa^{2} + 4 Q^{4} - 4 Q^{2} c_{2}^{2} \kappa^{2} + 4 Q^{2} c_{4}^{2} \kappa^{2} + c_{2}^{4} \kappa^{4} - 2 c_{2}^{2} c_{4}^{2} \kappa^{4} + c_{4}^{4} \kappa^{4}}\, ,
 \end{equation*}
+and where the minus signs corresponds to the transverse wave while the plus sign corresponds to the rotational wave.
 
-and where the minus signs corresponds to the transverse wave while the plus sign corresponds to the rotational wave. The dispersion relations for the different phases are given by
-
+The dispersion relations for the different propagating waves are given by
 \begin{align}
 &\omega_P = c_1 \kappa\, ,\\
 &\omega_{RL} = \sqrt{2Q^2 + c_3^2 \kappa^2}\, ,\\
@@ -313,8 +290,20 @@ And in the high frequency limit (\(\kappa \rightarrow \infty\)), we find that
 &\lim_{\kappa \rightarrow \infty}g_{RT} = \lim_{\kappa \rightarrow \infty}v_{RT} = c_4\, .
 \end{align*}
 
+
+The dispersion relation can be exemplified in the following set of figures. Where we can see the cut-off frequency for the rotational wave and the
+limit cases for the phase and group speeds.
+\begin{figure}[H]
+\centering
+		\includegraphics[height=1.8 in]{img/disp_micropolar_freqs.pdf}
+		\includegraphics[height=1.8 in]{img/disp_micropolar_phase_speed.pdf}
+		\includegraphics[height=1.8 in]{img/disp_micropolar_group_speed.pdf}
+\caption{Dispersion relations for a material with properties: $\rho = 1\times 10^5$, $J=1\times 10^4$, $\lambda=2.8 \times 10^{10}$, $\gamma + \epsilon=1.62 \times 10^9$, $\mu = 4\times 10^9$, $\alpha = 2 \times 10^9$ as in \cite{kulesh2009}.}
+\label{fig:dispersion}
+\end{figure}
+
 \subsubsection{Dispersion relations as functions of frequency}
-In some applications is useful to have the dispersion relations as functions of frequency instead of wavenumber. In this case they are given by
+In some applications it is useful to have the dispersion relations as functions of frequency instead of wavenumber. In this case they are given by
 \begin{align}
 &\kappa_P = \frac{\omega}{c_1}\, ,\\
 &\kappa_{RL} = \frac{\sqrt{\omega^2 - 2Q^2}}{c_3}\, ,\\
@@ -532,6 +521,16 @@ taking the same limits, we obtain
 and
 \[\lim_{\kappa \rightarrow \infty} g_S \rightarrow  \infty\, ,\]
 meaning that the speed of energy flow increases as the frequency increases.
+
+As in the case micropolar media, we can summarize these results in a set of figures.
+\begin{figure}[H]
+\centering
+		\includegraphics[height=1.8 in]{img/disp_cst_freqs.pdf}
+		\includegraphics[height=1.8 in]{img/disp_cst_phase_speed.pdf}
+		\includegraphics[height=1.8 in]{img/disp_cst_group_speed.pdf}
+\caption{Dispersion relations for a material with properties: \(\rho = 1\times 10^5\), \(\lambda=2.8 \times 10^{10}\),  \(\mu = 4\times 10^9\), \(\eta = 1.6 \times 10^9\).}
+\label{fig:dispersion}
+\end{figure}
 
 \subsection{Reflection of a plane wave on a plane boundary}
 
