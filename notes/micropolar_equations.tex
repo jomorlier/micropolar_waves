@@ -45,21 +45,31 @@
 \maketitle
 
 \section{Introduction}
-The classical model of continuum mechanics lacks a length scale thus it is unable to capture so-called size effects. In the early 1900s, starting with the work from the Cosserat brothers \citep{Cosserat1909} a series of non-classical models were proposed with an intrinsic capability to account for microstructural effects while retaining a continuum approach. Broadly speaking these models could be categorized into micropolar models incorporating additional degrees of freedom and reduced or gradient models keeping additional displacement gradients in its kinematic formulation. Although most of these formulations are mathematically consistent and are also able to predict numerical results valid under particular scenarios, not all of them are fully consistent as a continuum theory. For instance in a series of recent contribution Hadjesfandiari and Dargush() and Dargush and Hadjesfandiari() presented arguments questioning the continuum mechanics consistency of non-classical models. Moreover, these authors (see Hadjesfandiari and Dargush() ) formulated a valid Couple stress framework after fixing the kinematical indeterminacy in the reduced couple stress theory.
+The classical model of continuum mechanics based upon the fundamental postulate from Cauchy, and written in terms of force densities has been shown to produce valid engineering results provided inherent material micro-structures are neglected. This fundamental hypothesis is acceptable whenever characteristic specimen dimensions are several orders of magnitude larger than typical micro-structural features. However, if the realm of continuum mechanics is intended to be used at 
 
-Among the non-classical models, the micropolar theory \citep{Eringen1966} is very convenient since it just introduces an additional rotation independent of the macro-rotation which conserves the original structure of the displacements equations from classical theory and also eliminates compatibility issues in the corresponding numerical implementations. In this work we conduct additional scrutiny o the micropolar model but examining it from the point of view of its response under dynamic conditions and particularly from its wave propagation perspective. We start by reviewing the stress and displacement equations of motion and in general the mathematical consistency of the problem. Using vector potentials we find the existent propagation modes, derive dispersion relations and reflection coefficients. As a final verification we use Bloch analysis to obtain the band structure of a homogeneous micropolar model.
+ lacks a length scale and thus it is unable to capture so-called size effects. In the early 1900s, starting with the work from the Cosserats \citep{Cosserat1909} a series of non-classical models were proposed with an intrinsic capability to account for micro-structural effects while retaining a continuum approach. Broadly speaking these models could be categorized into micropolar models incorporating additional degrees of freedom and reduced or gradient models retaining additional displacement gradients in its kinematic formulation. Although most of these formulations are mathematically consistent and are also able to predict numerical results valid under particular scenarios, not all of them are fully consistent as a continuum theory and therefore their use as predictive models is questionable.
+
+In a series of recent contributions Hadjesfandiari and Dargush() and Dargush and Hadjesfandiari() presented arguments questioning the continuum mechanics consistency of a wide variety of non-classical models. Moreover, these authors (see Hadjesfandiari and Dargush() ) formulated a valid Couple stress framework after fixing the kinematical indeterminacy in the reduced couple stress theory.
+
+Among the non-classical models, the micropolar theory \citep{Eringen1966} turns out highly convenient since it just introduces an additional rotational degree of freedom independent of the macro-rotation thus preserving the original structure of the displacements equations from classical theory and also avoiding compatibility issues in the corresponding numerical implementations. In this work we conduct additional scrutiny of the micropolar model but examining it from the point of view of its response under from its wave propagation perspective. Within this context it is useful to understand a non-classical continuum model as an approach to incorporate actual micro-structural features present in the material without recurring to an explicit representation. At high frequencies these micro-structures are naturally expected to behave as micro-scatters producing wave dispersion. Clearly, one salient feature of a physically correct non-classical continuum model is the ability to capture wave dispersion.
+
+
+In this report we initially review the micro-polar continuum model from \cite{Eringen1966} in terms of conservation laws, kinematic relations, constitutive equations and displacement equations of motion. From these we identify possible propagating modes in a micro-polar medium. The resulting waves are then represented in terms of infinite plane disturbances propagating in a micro-polar half-space and producing reflections imposed by the force and moment traction-free boundary conditions. In this sense it is useful to describe the model in terms of reflection coefficients which are later used to compute the time domain response of the half-space allowing to identify the micro-scattering capabilities intrinsic in the continuous model. In the second part of the paper we conduct a similar analysis for the Skew-symmetric Couple Stress theory.
 
 
 
-\section{Fundamental relationships}
+
+\section{The Micro-polar continuum model}
 \subsection{Conservation of linear and angular momentum}
-In micropolar elasticity we have conservation of linear and angular momentum given by the following expressions
+Conservation of linear and angular momentum in micropolar elasticity reads:
 \begin{subequations}\label{eq:conservation}
   \begin{align}
     &\sigma_{ji, i} + f_i = \rho \ddot{u}_i\\
     &\sigma_{jk} \epsilon_{ijk} + \mu_{ji, j} + c_i = J \ddot{\varphi}\, .
   \end{align}
 \end{subequations}
+
+where $\sigma_{ij}$ and $\mu_{ij}$ correspond respectively to Cauchy force and couple stress tensor; $ f_i $ and $c_i$ are body forces and body couples and $\rho$ and $ J \ddot{\varphi}$ are the mass density and the rotational inertia density.
 
 \subsection{Kinematic relations}
 The (linearized) kinematic relations are given by
@@ -70,6 +80,8 @@ The (linearized) kinematic relations are given by
   \end{align}
 \end{subequations}
 
+and where $u_i$ corresponds to the displacements vector and $\varphi_k$ is the micro-rotation vector.
+
 \subsection{Constitutive equations}
 In the linear regime, the constitutive equations are
 \begin{subequations}\label{eq:constitutive}
@@ -79,60 +91,68 @@ In the linear regime, the constitutive equations are
   \end{align}
 \end{subequations}
 
-These constitutive equations can also be written as
+where $\mu$ and $\lambda$ are the known Lame parameters from classical elasticity while $\alpha$ , $\beta$ , $\gamma$ and $\epsilon$ are additional material parameters from the micro-polar model representative of additional particle interactions.
+
+Alternatively these constitutive equations can also be written as:
 \begin{align*}
     & \sigma_{ji} = \mu \gamma_{(ij)} + 2 \alpha \gamma_{[ij]} + \lambda \gamma_{kk} \delta_{ij}\\
     & \mu_{ji} = \gamma \kappa_{(ij)} + 2\varepsilon \kappa_{[ij]} + \beta \kappa_{kk} \delta_{ij}\, ,
 \end{align*}
-where we have separated the symmetric and antisymmetric parts of the 
+where we introduced parenthesis and square brackets surrounding a pair of indices to identify respectively the symmetric and skew-symmetric part of a second order tensor. 
 
-\section{Derivation of the equations for displacements and rotations}
-We can start writing the conservation equations \eqref{eq:conservation} as kinematic variables using the constitutive equations \eqref{eq:constitutive}, to obtain:
-\begin{align*}
- & (\mu + \alpha) \gamma_{ji, j} + (\mu - \alpha) \gamma_{ij,j} + \lambda \gamma_{kk, i} + f_i = \rho \ddot{u}_i\\
-  & \epsilon_{ijk}(\mu + \alpha) \gamma_{jk} + \epsilon_{ijk}(\mu - \alpha) \gamma_{kj} + \cancelto{0}{\epsilon_{ijk} \delta_{jk} \lambda \gamma_{rr}} + (\gamma + \epsilon) \kappa_{ji,j} + (\gamma - \epsilon) \kappa_{ij,j} + \beta \kappa_{kk, i} + c_i = J \ddot{\varphi}_i\, .
-\end{align*}
+\subsection{Displacements equations of motion}
+Using \eqref{eq:constitutive} and \eqref{eq:kinematics} in the lineal momentum and moment of momentum balance equations yields the displacement equations of motion.
 
-Let's focus in the equations for the conservation of linear momentum first. If we replace the kinematics relations, we get
-\[(\mu + \alpha) u_{i, jj} - (\mu + \alpha)\epsilon_{kji} \varphi_{k, j} + (\mu - \alpha) u_{j, ij} + (\mu - \alpha)\epsilon_{kji} \varphi_{k,j} + \lambda u_{k,ki} - \cancelto{0}{\epsilon_{krr}\lambda \varphi_{k,j}} + f_i = \rho \ddot{u}_i\, , \]
-or
-\[(\mu + \alpha) u_{i,jj} + (\mu - \alpha) u_{j,ij} + \lambda u_{k,kj} - 2\alpha \epsilon_{kji} + f_i = \rho \ddot{u}_i\, .\]
+%\begin{align*}
+% & (\mu + \alpha) \gamma_{ji, j} + (\mu - \alpha) \gamma_{ij,j} + \lambda \gamma_{kk, i} + f_i = \rho \ddot{u}_i\\
+%  & \epsilon_{ijk}(\mu + \alpha) \gamma_{jk} + \epsilon_{ijk}(\mu - \alpha) \gamma_{kj} + \cancelto{0}{\epsilon_{ijk} \delta_{jk} \lambda \gamma_{rr}} + (\gamma + \epsilon) \kappa_{ji,j} + (\gamma - \epsilon) \kappa_{ij,j} + \beta \kappa_{kk, i} + c_i = J \ddot{\varphi}_i\, .
+%\end{align*}
+%
+%Let's focus in the equations for the conservation of linear momentum first. If we replace the kinematics relations, we get
+%\[(\mu + \alpha) u_{i, jj} - (\mu + \alpha)\epsilon_{kji} \varphi_{k, j} + (\mu - \alpha) u_{j, ij} + (\mu - \alpha)\epsilon_{kji} \varphi_{k,j} + \lambda u_{k,ki} - \cancelto{0}{\epsilon_{krr}\lambda \varphi_{k,j}} + f_i = \rho \ddot{u}_i\, , \]
+%or
+%\[(\mu + \alpha) u_{i,jj} + (\mu - \alpha) u_{j,ij} + \lambda u_{k,kj} - 2\alpha \epsilon_{kji} + f_i = \rho \ddot{u}_i\, .\]
+%
+%And, using the identity \(a_{i,jj} = a_{j,ji} - \epsilon_{ijk} \epsilon_{klm} a_{m,lj}\),
+%\[(\mu + \alpha) u_{k, ki} - \epsilon_{ijk} \epsilon_{klm} (\mu + \alpha) u_{m, lj} + (\mu - \alpha) u_{j,ij} + \lambda u_{k, ki} - 2\alpha \epsilon_{kji} \varphi_{k,j} + f_i = \rho \ddot{u}_i\, ,\]
+%grouping \(u_{k,ki}\),
+%\[(\mu + \alpha + \lambda) u_{k, ki} - \epsilon_{ijk} \epsilon_{klm} (\mu + \alpha) u_{m,lj} + (\mu - \alpha) u_{j, ij} + 2\alpha \epsilon_{ijk} \varphi_{k,j} + f_i = \rho \ddot{u}_i\, ,\]
+%but \(u_{j, ij} = u_{j, ji}\), thus
+%\[(\lambda + 2\mu) u_{k, ki} - \epsilon_{ijk} \epsilon_{klm} (\mu + \alpha) u_{m,lj}+ 2\alpha \epsilon_{ijk} \varphi_{k,j} + f_i = \rho \ddot{u}_i\, .\]
 
-And, using the identity \(a_{i,jj} = a_{j,ji} - \epsilon_{ijk} \epsilon_{klm} a_{m,lj}\),
-\[(\mu + \alpha) u_{k, ki} - \epsilon_{ijk} \epsilon_{klm} (\mu + \alpha) u_{m, lj} + (\mu - \alpha) u_{j,ij} + \lambda u_{k, ki} - 2\alpha \epsilon_{kji} \varphi_{k,j} + f_i = \rho \ddot{u}_i\, ,\]
-grouping \(u_{k,ki}\),
-\[(\mu + \alpha + \lambda) u_{k, ki} - \epsilon_{ijk} \epsilon_{klm} (\mu + \alpha) u_{m,lj} + (\mu - \alpha) u_{j, ij} + 2\alpha \epsilon_{ijk} \varphi_{k,j} + f_i = \rho \ddot{u}_i\, ,\]
-but \(u_{j, ij} = u_{j, ji}\), thus
-\[(\lambda + 2\mu) u_{k, ki} - \epsilon_{ijk} \epsilon_{klm} (\mu + \alpha) u_{m,lj}+ 2\alpha \epsilon_{ijk} \varphi_{k,j} + f_i = \rho \ddot{u}_i\, .\]
-
-Following a similar approach, we obtain
-\[(\beta + 2\gamma) \varphi_{k, ki} - \epsilon_{ijk} \epsilon_{klm} (\gamma + \varepsilon) u_{m,lj}+ 2\alpha \epsilon_{ijk} u_{k,j} - 4\alpha\varphi + c_i = J \ddot{\varphi}_i\, ,\]
-for rotations.
-
-\section{Equations in index and vector notation}
-Authors presents the equations in slightly different ways, in this section we present the equations in two different forms.
-
-One form is
-\begin{subequations}
+\begin{subequations}\label{eq:displa}
   \begin{align}
-    & (\mu + \alpha) u_{i, jj} + (\lambda + \mu - \alpha) u_{j,ji} + 2\alpha \epsilon_{ijk}\varphi_{k,j} + f_i = \rho \ddot{u}_i\, \\
-    & (\gamma + \varepsilon) \varphi_{i, jj} + (\beta + \gamma - \varepsilon) \varphi_{j,ji} + 2\alpha \epsilon_{ijk}u_{k,j} - 4\alpha \varphi_i  + c_i = J \ddot{\varphi}_i\, ,
+(\lambda + 2\mu) u_{k, ki} - \epsilon_{ijk} \epsilon_{klm} (\mu + \alpha) u_{m,lj}+ 2\alpha \epsilon_{ijk} \varphi_{k,j} + f_i = \rho \ddot{u}_i\  .
   \end{align}
 \end{subequations}
-or, in vector notation
-\begin{align*}
-    & (\mu + \alpha)\laplacian{\vb{u}} + (\lambda + \mu - \alpha) \grad\div\vb{u} + 2\alpha \curl\vb{\varphi} + \vb{f} = \rho \pdv[2]{\vb{u}}{t}\, \\
-    & (\gamma + \varepsilon) \laplacian\vb{\varphi} + (\beta + \gamma - \varepsilon) \grad\div\vb{\varphi} + 2\alpha \curl\vb{u} - 4\alpha \vb{\varphi}  + \vb{c} = J \pdv[2]{\varphi}{t}\, .
-\end{align*}
 
-We find the second form more appropriated for wave propagation. This one, reads
-\begin{subequations}
+\begin{subequations}\label{eq:rota}
   \begin{align}
-    & (\lambda + 2\mu) u_{k, ki} - \epsilon_{ijk} \epsilon_{klm} (\mu + \alpha) u_{m,lj}+ 2\alpha \epsilon_{ijk} \varphi_{k,j} + f_i = \rho \ddot{u}_i, \\
-    & (\beta + 2\gamma) \varphi_{k, ki} - \epsilon_{ijk} \epsilon_{klm} (\gamma + \varepsilon) u_{m,lj}+ 2\alpha \epsilon_{ijk} u_{k,j} - 4\alpha\varphi + c_i = J \ddot{\varphi}_i\, ,
+(\beta + 2\gamma) \varphi_{k, ki} - \epsilon_{ijk} \epsilon_{klm} (\gamma + \varepsilon) u_{m,lj}+ 2\alpha \epsilon_{ijk} u_{k,j} - 4\alpha\varphi + c_i = J \ddot{\varphi}_i\, ,
   \end{align}
 \end{subequations}
-or, in vector notation
+
+
+
+
+\section{Waves in micropolar solids}
+\subsection{Equations in terms of potentials}
+
+To identify types of propagating waves that can arise in the micropolar medium it is convenient to expand the displacement and rotation vectors in terms of scalar and vector potentials
+\begin{align*}
+\vb{u} &= \grad \phi + \curl\vb{\Gamma}\, ,\\
+\vb{\varphi} &= \grad \tau + \curl\vb{E}\, ,
+\end{align*}
+
+subject to the conditions:
+
+\begin{align*}
+&\div\vb{\Gamma} = 0\\
+&\div\vb{E} = 0\, .
+\end{align*}
+
+Using the above in the displacements equations of motion (repeated here for convenience)
+
 \begin{subequations}\label{eq:disp_vector}
   \begin{align}
     & (\lambda + 2\mu) \grad\div\vb{u} - (\mu + \alpha)\curl\curl\vb{u} + 2\alpha \curl\vb{\varphi} + \vb{f} = \rho \pdv[2]{\vb{u}}{t}, \\
@@ -140,36 +160,9 @@ or, in vector notation
   \end{align}
 \end{subequations}
 
-\section{Waves in micropolar solids}
-Let's write equation \eqref{eq:disp_vector} in a slightly different way, where we regroup the material constants in a different way and neglect body forces
-\begin{subequations}
-  \begin{align}\label{eq:disp_waves}
-    & c_1^2 \grad\div\vb{u} - c_2^2\curl\curl\vb{u} + K^2 \curl\vb{\varphi} =  \pdv[2]{\vb{u}}{t}, \\
-    & c_3^2 \grad\div\vb{\varphi} - c_4^2 \curl\curl\vb{\varphi} +  Q^2 \curl\vb{u} - 2Q^2 \vb{\varphi} = \pdv[2]{\vb{\varphi}}{t}\, .
-  \end{align}
-\end{subequations}
-where,
-\begin{equation*}
-\begin{split}
-c_1^2 = \frac{\lambda +2\mu}{\rho},\quad &c_3^2 =\frac{\beta +2\gamma}{J},\\
-c_2^2 = \frac{\mu +\alpha}{\rho},\quad &c_4^2 =\frac{\gamma + \varepsilon}{J},\\
-K^2= \frac{2\alpha}{\rho},\quad &Q^2 =\frac{2\alpha}{J} \, ,
-\end{split}
-\end{equation*}
 
+yields after some manipulations:
 
-To identify types of propagating waves that can arise in the micropolar medium we expand our main variables in terms of scalar and vector potentials, as follows
-\begin{align*}
-\vb{u} &= \grad \phi + \curl\vb{\Gamma}\, ,\\
-\vb{\varphi} &= \grad \tau + \curl\vb{E}\, ,
-\end{align*}
-with
-\begin{align*}
-&\div\vb{\Gamma} = 0\\
-&\div\vb{E} = 0\, .
-\end{align*}
-
-If we plug these in \eqref{eq:disp_waves}, we obtain the following, after some manipulations,
 \begin{subequations}
   \begin{align}\label{eq:potential_waves}
     c_1^2 \laplacian\phi &= \pdv[2]{\phi}{t}\\
@@ -179,25 +172,56 @@ If we plug these in \eqref{eq:disp_waves}, we obtain the following, after some m
       Q^2\curl &c_4^2\laplacian - 2Q^2
     \end{bmatrix}
     \begin{Bmatrix} \vb{\Gamma}\\ \vb{E}\end{Bmatrix} &=
-    \pdv[2]{t} \begin{Bmatrix} \vb{\Gamma}\\ \vb{E}\end{Bmatrix}\, ,
+    \pdv[2]{t} \begin{Bmatrix} \vb{\Gamma}\\ \vb{E}\end{Bmatrix}\,.
   \end{align}
 \end{subequations}
+
+
 where we can see that the equations for the scalar potentials are uncoupled, while the ones
 for the vector potentials are coupled.
 
+To arrive at \eqref{eq:potential_waves} we have neglected body forces and body couples and have written the displacement equations of motions in the alternative form:
+
+\begin{subequations}
+  \begin{align}\label{eq:disp_waves}
+    & c_1^2 \grad\div\vb{u} - c_2^2\curl\curl\vb{u} + K^2 \curl\vb{\varphi} =  \pdv[2]{\vb{u}}{t}, \\
+    & c_3^2 \grad\div\vb{\varphi} - c_4^2 \curl\curl\vb{\varphi} +  Q^2 \curl\vb{u} - 2Q^2 \vb{\varphi} = \pdv[2]{\vb{\varphi}}{t}\, .
+  \end{align}
+\end{subequations}
+
+where we have used the following relations:
+
+\begin{equation*}
+\begin{split}
+c_1^2 = \frac{\lambda +2\mu}{\rho},\quad &c_3^2 =\frac{\beta +2\gamma}{J},\\
+c_2^2 = \frac{\mu +\alpha}{\rho},\quad &c_4^2 =\frac{\gamma + \varepsilon}{J},\\
+K^2= \frac{2\alpha}{\rho},\quad &Q^2 =\frac{2\alpha}{J} \, ,
+\end{split}
+\end{equation*}
+
+
+
+
+
 \subsection{Dispersion relations}
-If we assume that the potentials are plane waves we can find the dispersion relations. Particularly, for the coupled waves, we have
+Writing the potentials as plane waves of amplitude $ \vb{A}$ and $ \vb{B}$, wave vector $\kappa$ and circular frequency $\omega$
+
 \begin{align*}
 \vb{\Gamma} &= \vb{A}\exp(i\kappa x - i\omega t)\\
 \vb{E} &= \vb{B}\exp(i\kappa x - i\omega t)\, ,
 \end{align*}
-and plugging it into the coupled equation we end up with the following system of equations
+
+
+and using these in the equations of motion yields:
+
 \[\begin{bmatrix}
 M_{11} &M_{12}\\
 M_{21} &M_{22}\end{bmatrix}
 \begin{Bmatrix} \vb{A}\\ \vb{B}\end{Bmatrix}
 = \vb{0}\, ,\]
-with
+
+where
+
 \begin{align*}
 &M_{11} =
 (c_{2}^{2} \kappa^{2} - \omega^{2})
@@ -226,17 +250,20 @@ with
 \end{bmatrix}\, .
 \end{align*}
 
-Since we are not interested in the null solution, we have
+For non-trivial solutions it is required that
+
 \[\det\begin{bmatrix}
 M_{11} &M_{12}\\
 M_{21} &M_{22}\end{bmatrix}=0\, ,\]
-that leads to the dispersion equation 
+
+which leads to the following frequency-wave number (or dispersion) relations
+
 \begin{equation*}
 \omega^2 = Q^{2} + \frac{c_{2}^{2} \kappa^{2}}{2} + \frac{c_{4}^{2} \kappa^{2}}{2} \mp \frac{1}{2} \sqrt{4 K^{2} Q^{2} \kappa^{2} + 4 Q^{4} - 4 Q^{2} c_{2}^{2} \kappa^{2} + 4 Q^{2} c_{4}^{2} \kappa^{2} + c_{2}^{4} \kappa^{4} - 2 c_{2}^{2} c_{4}^{2} \kappa^{4} + c_{4}^{4} \kappa^{4}}\, ,
 \end{equation*}
-where the minus signs corresponds to the transverse wave and the plus sign corresponds to the rotational wave.
 
-The dispersion relations are then
+and where the minus signs corresponds to the transverse wave while the plus sign corresponds to the rotational wave. The dispersion relations for the different phases are given by
+
 \begin{align}
 &\omega_P = c_1 \kappa\, ,\\
 &\omega_{RL} = \sqrt{2Q^2 + c_3^2 \kappa^2}\, ,\\
@@ -245,7 +272,8 @@ The dispersion relations are then
 &\omega_{RT} = \sqrt{Q^{2} + \frac{(c_2^2 + c_4^2)}{2}\kappa^2 + \frac{1}{2} \sqrt{4Q^4 +
    4Q^2[(c_4^2 - c_2^2) + K^2]\kappa^2 + (c_4^2 - c_2^2)^2 \kappa^4}}\, ,
 \end{align}
-where we can see that the only wave that is not dispersive is the P-wave, since the relationship between wavenumber and frequency is linear.
+
+Notice that the only wave that is not dispersive is the P-wave, since the relationship between wavenumber and frequency is linear.
 
 \subsubsection{Wave speeds}
 We can write the phase speeds \(v_i \equiv \omega_i/\kappa\), to obtain
@@ -457,6 +485,7 @@ In the general case we have the following scattering matrix
 
 
 \section{Waves in Couple-Stress Theory}
+\subsection{Wave speeds}
 As presented in Hadjesfandiari and Dargush(), the equations of motion in terms of displacements for the Couple-Stress Theory (CST) are
 \[c_1^2 \nabla (\nabla \cdot \mathbf{u}) - c_2^2\nabla\times \nabla \times \mathbf{u} + l^2 c_2^2 \nabla^2 \nabla \times \nabla \times \mathbf{u} = \ddot{\mathbf{u}}\, ,\]
 with
@@ -563,13 +592,46 @@ If we solve the resulting system of equations we obtain the following reflection
 \end{align*}
 where the limits \(v_2 \rightarrow c_2\) and \(K \rightarrow 0\) clearly lead to the classical version of the coefficients \citep{AkiAndRichards2002}.
 
-\begin{figure}
+\begin{figure}[H]
   \centering
   \includegraphics[width=5in]{img/{CST_plane_wave-L=0.01}.png}\\
   \includegraphics[width=5in]{img/{CST_plane_wave-L=0.03}.png}\\
   \includegraphics[width=5in]{img/{CST_plane_wave-L=0.1}.png}\\
   \caption{Reflection of an incident P-wave on a halfspace for different length scales. The angle of incidence is \(\pi/6\) rad, the P-wave speed is \(c_1=2\), the (classical) S-wave speed is \(c_2=1\), and the length scales are \(l = \{0.01, 0.03, 0.1\}\) (from top to bottom). It is clearly seen how the dispersion increases while the length scale parameter increases.}
 \end{figure}
+
+\section*{Appendix}
+
+\subsection*{Equations in index and vector notation}
+Authors presents the equations in slightly different ways, in this section we present the equations in two different forms.
+
+One form is
+\begin{subequations}
+  \begin{align}
+    & (\mu + \alpha) u_{i, jj} + (\lambda + \mu - \alpha) u_{j,ji} + 2\alpha \epsilon_{ijk}\varphi_{k,j} + f_i = \rho \ddot{u}_i\, \\
+    & (\gamma + \varepsilon) \varphi_{i, jj} + (\beta + \gamma - \varepsilon) \varphi_{j,ji} + 2\alpha \epsilon_{ijk}u_{k,j} - 4\alpha \varphi_i  + c_i = J \ddot{\varphi}_i\, ,
+  \end{align}
+\end{subequations}
+or, in vector notation
+\begin{align*}
+    & (\mu + \alpha)\laplacian{\vb{u}} + (\lambda + \mu - \alpha) \grad\div\vb{u} + 2\alpha \curl\vb{\varphi} + \vb{f} = \rho \pdv[2]{\vb{u}}{t}\, \\
+    & (\gamma + \varepsilon) \laplacian\vb{\varphi} + (\beta + \gamma - \varepsilon) \grad\div\vb{\varphi} + 2\alpha \curl\vb{u} - 4\alpha \vb{\varphi}  + \vb{c} = J \pdv[2]{\varphi}{t}\, .
+\end{align*}
+
+We find the second form more appropriated for wave propagation. This one, reads
+\begin{subequations}
+  \begin{align}
+    & (\lambda + 2\mu) u_{k, ki} - \epsilon_{ijk} \epsilon_{klm} (\mu + \alpha) u_{m,lj}+ 2\alpha \epsilon_{ijk} \varphi_{k,j} + f_i = \rho \ddot{u}_i, \\
+    & (\beta + 2\gamma) \varphi_{k, ki} - \epsilon_{ijk} \epsilon_{klm} (\gamma + \varepsilon) u_{m,lj}+ 2\alpha \epsilon_{ijk} u_{k,j} - 4\alpha\varphi + c_i = J \ddot{\varphi}_i\, ,
+  \end{align}
+\end{subequations}
+or, in vector notation
+\begin{subequations}\label{eq:disp_vector}
+  \begin{align}
+    & (\lambda + 2\mu) \grad\div\vb{u} - (\mu + \alpha)\curl\curl\vb{u} + 2\alpha \curl\vb{\varphi} + \vb{f} = \rho \pdv[2]{\vb{u}}{t}, \\
+    & (\beta + 2\gamma) \grad\div\vb{\varphi} - (\gamma + \varepsilon) \curl\curl\vb{\varphi} +  2\alpha \curl\vb{u} - 4\alpha\vb{\varphi} + \vb{c} = J \pdv[2]{\vb{\varphi}}{t}\, .
+  \end{align}
+\end{subequations}
 
 
 
